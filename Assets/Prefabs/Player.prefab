@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3940338303746427731}
-  - component: {fileID: 3940338303746427724}
   - component: {fileID: 3940338303746427728}
   - component: {fileID: 3940338303746427730}
   - component: {fileID: 6310241995885982754}
   - component: {fileID: 7173724810756775810}
+  - component: {fileID: 5251032690100787460}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -35,24 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3940338303746427724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940338303746427735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a94b8c97a8310ab4b98cee8133bf8c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!50 &3940338303746427728
 Rigidbody2D:
   serializedVersion: 4
@@ -147,3 +129,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5251032690100787460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940338303746427735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6e54fc7ffebbf4293a5c9a499d3f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  bulletPrefab: {fileID: 6160398713270689481, guid: abe0149f67ddbfa49adb0606d993d2f8,
+    type: 3}

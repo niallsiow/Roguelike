@@ -6,18 +6,12 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     public float speed;
-    Animator animator;
 
-
-    public Transform attackPoint;
-    public float attackRange = 0.5f;
-
-    public LayerMask enemyLayers;
+    public GameObject bulletPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,13 +36,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Attack()
     {
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Instantiate(bulletPrefab, transform.position, transform.rotation);
     }
 }
