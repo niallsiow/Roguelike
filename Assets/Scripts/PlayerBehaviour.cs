@@ -20,14 +20,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
 
         // rotate Player towards cursor position
-        /*
-        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
-        Vector2 diffPos = myPos - new Vector2(cursorPosition.x, cursorPosition.y);
-        float rotation = Mathf.Atan2(diffPos.x, diffPos.y);
-        transform.Rotate(0, 0, rotation);
-        
-        */
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 diffPos = cursorPosition - transform.position;
         diffPos.z = 0f;
@@ -42,14 +34,14 @@ public class PlayerBehaviour : MonoBehaviour
         // attack
         if (Input.GetButtonDown("Fire1"))
         {
-            Attack();
+            Shoot();
         }
 
     }
 
-    void Attack()
+    void Shoot()
     {
-        GameObject bullet = (GameObject)Instantiate(bulletPrefab, transform.position, transform.rotation);
+        GameObject bullet = (GameObject)Instantiate(bulletPrefab, transform.position + transform.right, transform.rotation);
         bullet.transform.right = transform.right;
     }
 }

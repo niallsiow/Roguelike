@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     public float speed;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +18,17 @@ public class BulletBehaviour : MonoBehaviour
     {
         // move bullet in direction initially fired in
         transform.position += transform.right * speed * Time.deltaTime;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject hitObject = collision.gameObject;
+
+        if(hitObject.tag == "Enemy")
+        {
+            hitObject.GetComponent<HealthSystem>().TakeDamage(damage);
+        }
+
+        Destroy(gameObject);
     }
 }
