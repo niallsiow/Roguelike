@@ -23,6 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // movement
         Vector2 movementVector;
         movementVector.x = Input.GetAxisRaw("Horizontal");
         movementVector.y = Input.GetAxisRaw("Vertical");
@@ -30,6 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         gameObject.GetComponent<Rigidbody2D>().velocity = movementVector.normalized * speed;
 
+        // attack
         if (Input.GetButtonDown("Fire1"))
         {
             Attack();
@@ -40,20 +42,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Attack()
     {
-        // play attack animation
-        animator.SetTrigger("Attack");
-
-        // detect enemies in range of attack
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        // damage them
-        foreach(Collider2D enemy in hitEnemies)
-        {
-            if (enemy.gameObject.GetComponent<HealthSystem>() != null)
-            {
-                enemy.gameObject.GetComponent<HealthSystem>().TakeDamage(1f);
-            }
-        }
     }
 
     private void OnDrawGizmosSelected()
